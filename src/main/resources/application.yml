@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: dashboard_collector
+  data:
+    mongodb:
+      uri: mongodb://localhost/dashboard_collector
+
+artifactory:
+  url: "http://10.120.100.231:9191/artifactory"
+  token: "AKCp5fUP76Bsu7NfokWvYpJEbyVkxXuHR2MGjWo2YCDYfto3wn9sf2RRXnKvfBr5vjz5ytUQM"
+  username: "admin"
+logging:
+  level:
+    com.cognizant.collector.artifactory.clients.ArtifactoryClient: OFF
+
+  pattern:
+    console: '%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n'
+
+scheduler:
+  cron: 0 0/5 * * * *
+  enable: true
+
+server :
+  port : 8087
