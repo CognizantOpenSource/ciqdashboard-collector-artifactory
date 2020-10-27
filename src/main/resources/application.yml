@@ -3,7 +3,8 @@ spring:
     name: dashboard_collector
   data:
     mongodb:
-      uri: mongodb://localhost/dashboard_collector
+      uri: mongodb://idashboard:${spring.data.mongodb.credents}@10.120.100.231/idashboard
+      credents: ENC(rwQEK1M5vbHwwhhqx6pBDHn4Ut4IrKHbBUsrB0AUR8XHc8GN/Sf4IRVma96OWroe)
 
 artifactory:
   url: "http://10.120.100.231:9191/artifactory"
@@ -22,3 +23,8 @@ scheduler:
 
 server :
   port : 8087
+
+jasypt:
+  encryptor:
+    algorithm: PBEWITHHMACSHA512ANDAES_256
+    password: LeapSecurityKey  
