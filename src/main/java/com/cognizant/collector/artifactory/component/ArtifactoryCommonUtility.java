@@ -10,12 +10,13 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
-import static com.cognizant.collector.artifactory.constants.Constant.SOURCE;
+import static com.cognizant.collector.artifactory.constants.Constant.SOURCE_BUILD;
 
 @Component
 public class ArtifactoryCommonUtility {
     private HttpHeaders headers = new HttpHeaders();
-    public static String collectionName;
+    static String buildCollectionName;
+    static String storageCollectionName;
     @Autowired
     private ArtifactoryProperties properties;
 
@@ -31,13 +32,23 @@ public class ArtifactoryCommonUtility {
         return headers;
     }
 
-    @Value("${spring.data.mongodb.collection}")
-    public void setCollectionName(String collectionName) {
-        this.collectionName = SOURCE+collectionName;
+    @Value("${spring.data.mongodb.collection.build}")
+    public void setBuildCollectionName(String collectionName) {
+        this.buildCollectionName = SOURCE_BUILD+collectionName;
     }
 
-    public static String getCollectionName(){
-        return collectionName;
+    public static String getBuildCollectionName(){
+        return buildCollectionName;
     }
+
+    @Value("${spring.data.mongodb.collection.storage}")
+    public void setStorageCollectionName(String collectionName) {
+        this.buildCollectionName = SOURCE_BUILD+collectionName;
+    }
+
+    public static String getStorageCollectionName(){
+        return storageCollectionName;
+    }
+
 
 }
