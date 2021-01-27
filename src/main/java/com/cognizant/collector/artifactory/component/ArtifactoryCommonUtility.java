@@ -2,7 +2,6 @@ package com.cognizant.collector.artifactory.component;
 
 import com.cognizant.collector.artifactory.beans.ArtifactoryProperties;
 import com.cognizant.collector.artifactory.config.CustomBasicAuthentication;
-import com.cognizant.collector.artifactory.constants.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 import static com.cognizant.collector.artifactory.constants.Constant.SOURCE_BUILD;
+import static com.cognizant.collector.artifactory.constants.Constant.SOURCE_STORAGE;
 
 @Component
 public class ArtifactoryCommonUtility {
@@ -43,7 +43,7 @@ public class ArtifactoryCommonUtility {
 
     @Value("${spring.data.mongodb.collection.storage}")
     public void setStorageCollectionName(String collectionName) {
-        this.buildCollectionName = SOURCE_BUILD+collectionName;
+        this.storageCollectionName = SOURCE_STORAGE+collectionName;
     }
 
     public static String getStorageCollectionName(){
