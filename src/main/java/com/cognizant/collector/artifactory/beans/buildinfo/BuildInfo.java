@@ -16,7 +16,7 @@ import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Document("source_artifactoryBuilds")
+@Document(collection = "#{T(com.cognizant.collector.artifactory.component.ArtifactoryCommonUtility).getBuildCollectionName()}")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "version",

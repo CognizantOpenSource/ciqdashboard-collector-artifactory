@@ -16,10 +16,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 @EnableAutoConfiguration
 @EnableEncryptableProperties
 public class ArtifactoryApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(ArtifactoryApplication.class, args);
-
 	}
-
 }
